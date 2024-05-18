@@ -26,3 +26,32 @@ entity top_level is
            Result: out std_logic_vector(7 downto 0);
            Zero  : out std_logic);
 end top_level;
+```
+Pour la partie architecture :
+
+```vhdl
+architecture Behavioral of alu is
+begin
+    process(A, B, Op)
+        variable Temp: signed(7 downto 0); 
+    begin
+        -- Effectue l'opération arithmétique ou logique appropriée en fonction de Op
+        Temp := signed(A) + signed(B);         -- Addition par défaut
+        case Op is
+            when "000" => Result <= std_logic_vector(Temp);         -- Addition
+            when "001" => Temp := signed(A) - signed(B); Result <= std_logic_vector(Temp);          -- Soustraction
+            when "010" => Result <= A AND B;        -- ET logique
+            when "011" => Result <= A OR B;       -- OU logique
+            when "100" => Result <= A XOR B;     -- XOR
+            when others => Result <= (others => 'X'); -- Résultat indéterminé pour d'autres opcodes
+        end case;
+        
+        -- Détermine si le résultat est zéro
+        if Temp = 0 then
+            Zero <= '1';  -- Résultat est zéro
+        else
+            Zero <= '0';  -- Résultat n'est pas zéro
+        end if;
+    end process;
+end Behavioral;
+```
