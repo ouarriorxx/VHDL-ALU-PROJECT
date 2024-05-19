@@ -18,6 +18,7 @@ L'architecture de l'ALU est implémentée de manière comportementale en VHDL. E
 3. L'ALU effectuera l'opération spécifiée par le signal Op sur les entrées A et B, produisant un résultat et un signal Zero correspondant.
 
 Exemple de déclaration :
+![WhatsApp Image 2024-05-18 à 22 43 45_75708208](https://github.com/ouarriorxx/VHDL-ALU-PROJECT/assets/143946046/19c7e222-bb6c-4e95-b496-68caf61dbb2a)
 
 ```vhdl
 entity top_level is
@@ -28,6 +29,7 @@ entity top_level is
 end top_level;
 ```
 Pour la partie architecture :
+![WhatsApp Image 2024-05-18 à 22 43 59_c25454eb](https://github.com/ouarriorxx/VHDL-ALU-PROJECT/assets/143946046/cc867eba-5829-409d-8ce3-9c138a1128de)
 
 ```vhdl
 architecture Behavioral of alu is
@@ -55,3 +57,4 @@ begin
     end process;
 end Behavioral;
 ```
+![WhatsApp Image 2024-05-18 à 22 44 56_034b00e3](https://github.com/ouarriorxx/VHDL-ALU-PROJECT/assets/143946046/64aae75e-1cea-4590-9ace-62c2441dcdb9)
